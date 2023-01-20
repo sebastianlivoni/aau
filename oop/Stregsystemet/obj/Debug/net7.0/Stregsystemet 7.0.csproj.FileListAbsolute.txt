@@ -1,0 +1,45 @@
+/Users/seb/Developer/oop/Stregsystemet 7.0/bin/Debug/net7.0/Stregsystemet 7.0
+/Users/seb/Developer/oop/Stregsystemet 7.0/bin/Debug/net7.0/Stregsystemet 7.0.deps.json
+/Users/seb/Developer/oop/Stregsystemet 7.0/bin/Debug/net7.0/Stregsystemet 7.0.runtimeconfig.json
+/Users/seb/Developer/oop/Stregsystemet 7.0/bin/Debug/net7.0/Stregsystemet 7.0.dll
+/Users/seb/Developer/oop/Stregsystemet 7.0/bin/Debug/net7.0/Stregsystemet 7.0.pdb
+/Users/seb/Developer/oop/Stregsystemet 7.0/obj/Debug/net7.0/Stregsystemet 7.0.csproj.AssemblyReference.cache
+/Users/seb/Developer/oop/Stregsystemet 7.0/obj/Debug/net7.0/Stregsystemet 7.0.GeneratedMSBuildEditorConfig.editorconfig
+/Users/seb/Developer/oop/Stregsystemet 7.0/obj/Debug/net7.0/Stregsystemet 7.0.AssemblyInfoInputs.cache
+/Users/seb/Developer/oop/Stregsystemet 7.0/obj/Debug/net7.0/Stregsystemet 7.0.AssemblyInfo.cs
+/Users/seb/Developer/oop/Stregsystemet 7.0/obj/Debug/net7.0/Stregsystemet 7.0.csproj.CoreCompileInputs.cache
+/Users/seb/Developer/oop/Stregsystemet 7.0/obj/Debug/net7.0/Stregsystemet 7.0.dll
+/Users/seb/Developer/oop/Stregsystemet 7.0/obj/Debug/net7.0/refint/Stregsystemet 7.0.dll
+/Users/seb/Developer/oop/Stregsystemet 7.0/obj/Debug/net7.0/Stregsystemet 7.0.pdb
+/Users/seb/Developer/oop/Stregsystemet 7.0/obj/Debug/net7.0/Stregsystemet 7.0.genruntimeconfig.cache
+/Users/seb/Developer/oop/Stregsystemet 7.0/obj/Debug/net7.0/ref/Stregsystemet 7.0.dll
+/Users/seb/Developer/oop/Stregsystemet/bin/Debug/net7.0/Stregsystemet 7.0
+/Users/seb/Developer/oop/Stregsystemet/bin/Debug/net7.0/Stregsystemet 7.0.deps.json
+/Users/seb/Developer/oop/Stregsystemet/bin/Debug/net7.0/Stregsystemet 7.0.runtimeconfig.json
+/Users/seb/Developer/oop/Stregsystemet/bin/Debug/net7.0/Stregsystemet 7.0.dll
+/Users/seb/Developer/oop/Stregsystemet/bin/Debug/net7.0/Stregsystemet 7.0.pdb
+/Users/seb/Developer/oop/Stregsystemet/obj/Debug/net7.0/Stregsystemet 7.0.csproj.AssemblyReference.cache
+/Users/seb/Developer/oop/Stregsystemet/obj/Debug/net7.0/Stregsystemet 7.0.GeneratedMSBuildEditorConfig.editorconfig
+/Users/seb/Developer/oop/Stregsystemet/obj/Debug/net7.0/Stregsystemet 7.0.AssemblyInfoInputs.cache
+/Users/seb/Developer/oop/Stregsystemet/obj/Debug/net7.0/Stregsystemet 7.0.AssemblyInfo.cs
+/Users/seb/Developer/oop/Stregsystemet/obj/Debug/net7.0/Stregsystemet 7.0.csproj.CoreCompileInputs.cache
+/Users/seb/Developer/oop/Stregsystemet/obj/Debug/net7.0/Stregsystemet 7.0.dll
+/Users/seb/Developer/oop/Stregsystemet/obj/Debug/net7.0/refint/Stregsystemet 7.0.dll
+/Users/seb/Developer/oop/Stregsystemet/obj/Debug/net7.0/Stregsystemet 7.0.pdb
+/Users/seb/Developer/oop/Stregsystemet/obj/Debug/net7.0/Stregsystemet 7.0.genruntimeconfig.cache
+/Users/seb/Developer/oop/Stregsystemet/obj/Debug/net7.0/ref/Stregsystemet 7.0.dll
+/Users/seb/Developer/AAU/oop/Stregsystemet/bin/Debug/net7.0/Stregsystemet 7.0
+/Users/seb/Developer/AAU/oop/Stregsystemet/bin/Debug/net7.0/Stregsystemet 7.0.deps.json
+/Users/seb/Developer/AAU/oop/Stregsystemet/bin/Debug/net7.0/Stregsystemet 7.0.runtimeconfig.json
+/Users/seb/Developer/AAU/oop/Stregsystemet/bin/Debug/net7.0/Stregsystemet 7.0.dll
+/Users/seb/Developer/AAU/oop/Stregsystemet/bin/Debug/net7.0/Stregsystemet 7.0.pdb
+/Users/seb/Developer/AAU/oop/Stregsystemet/obj/Debug/net7.0/Stregsystemet 7.0.csproj.AssemblyReference.cache
+/Users/seb/Developer/AAU/oop/Stregsystemet/obj/Debug/net7.0/Stregsystemet 7.0.GeneratedMSBuildEditorConfig.editorconfig
+/Users/seb/Developer/AAU/oop/Stregsystemet/obj/Debug/net7.0/Stregsystemet 7.0.AssemblyInfoInputs.cache
+/Users/seb/Developer/AAU/oop/Stregsystemet/obj/Debug/net7.0/Stregsystemet 7.0.AssemblyInfo.cs
+/Users/seb/Developer/AAU/oop/Stregsystemet/obj/Debug/net7.0/Stregsystemet 7.0.csproj.CoreCompileInputs.cache
+/Users/seb/Developer/AAU/oop/Stregsystemet/obj/Debug/net7.0/Stregsystemet 7.0.dll
+/Users/seb/Developer/AAU/oop/Stregsystemet/obj/Debug/net7.0/refint/Stregsystemet 7.0.dll
+/Users/seb/Developer/AAU/oop/Stregsystemet/obj/Debug/net7.0/Stregsystemet 7.0.pdb
+/Users/seb/Developer/AAU/oop/Stregsystemet/obj/Debug/net7.0/Stregsystemet 7.0.genruntimeconfig.cache
+/Users/seb/Developer/AAU/oop/Stregsystemet/obj/Debug/net7.0/ref/Stregsystemet 7.0.dll

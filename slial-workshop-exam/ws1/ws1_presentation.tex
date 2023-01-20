@@ -1,0 +1,263 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{tikz}
+
+\usepackage{pgfplots,pgfplotstable}
+\pgfplotsset{compat=1.15}
+
+\title{Sandsynlighedsteori og Lineær algebra}
+\subtitle{Workshop 1 - Linear transformations and system of linear equations}
+\author{Sebastian Livoni Larsen}
+
+\newenvironment{amatrix}[1]{%
+ \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+ \end{array}\right]
+}
+
+\def\FunctionF(#1){24*(#1)^0 - 28*(#1)^1 + 8*(#1)^2}
+\def\Functionone(#1){(#1)}
+\def\Functiontwo(#1){(1.5*(#1))}
+\def\Functionthree(#1){1.01*(#1)}
+
+\begin{document}
+	\frame {
+		\titlepage
+	}
+	\frame {
+		\frametitle{Polynomial curve fitting}
+		\framesubtitle{\textbf{1.1} - The total matrix corresponding to the system of equations}
+		\[
+			\begin{amatrix}{5}
+				t^0_1 & t_1^1 & t_1^2 & \cdots & t_{1}^{n-1} & y_1 \\
+				t^0_2 & t_2^1 & t_2^2 & \cdots & t_{2}^{n-1} & y_2 \\
+				\vdots & \vdots & \vdots & \cdots & \vdots & \vdots \\
+				t^0_n & t_n^1 & t_n^2 & \cdots & t_{n}^{n-1} & y_n \\ 
+			\end{amatrix}
+		\]
+	}
+	\frame{
+		\frametitle{Polynomial curve fitting}
+		\framesubtitle{\textbf{1.3} - Using Gaussian elimination to find the quadratic polynomial passing through the points}
+		\[
+			\begin{amatrix}{3}
+				1^0 & 1^1 & 1^2 & 4 \\
+				2^0 & 2^1 & 2^2 & 0 \\
+				3^0 & 3^1 & 3^2 & 12 \\
+			\end{amatrix}
+			\sim
+			\begin{bmatrix}
+				1 & 0 & 0 & 24 \\
+				0 & 1 & 0 & -28 \\
+				0 & 0 & 1 & 8 \\
+			\end{bmatrix}
+		\]
+		\[
+			q=\begin{bmatrix}
+				q_0 \\ q_1 \\ q_2
+			\end{bmatrix}
+			=
+			\begin{bmatrix}
+				24 \\ -28 \\ 8
+			\end{bmatrix}
+		\]
+		\[
+			p(t)=q_0 +q_1 t + \dots +q_{n-1} t^{n-1}=24t^0-28t^1+8t^2
+		\]
+	}
+	\frame{
+		\frametitle{Polynomial curve fitting}
+		\framesubtitle{\textbf{1.3} - Using Gaussian elimination to find the quadratic polynomial passing through the points (continuation from last slide)}
+		
+		\begin{tikzpicture}
+      \begin{axis}[
+            axis y line=center,
+            axis x line=middle, 
+            axis on top=true,
+            xmin=-2,
+            xmax=5.5,
+            ymin=-8,
+            ymax=42,
+            height=8.0cm,
+            width=12.0cm,
+            grid,
+            xtick={-2,...,5},
+            ytick={-5,0,...,40},
+        ]
+        \addplot [domain=-5:5, samples=50, mark=none, ultra thick, blue] {\FunctionF(x)};
+        \node [left, blue] at (axis cs: 3,37.5) {$24t^0-28t^1+8t^2$};
+        \filldraw[blue] (1,4) circle (2pt) node[anchor=east,text=black]{(1,4)};
+        \filldraw[blue] (2,0) circle (2pt) node[anchor=south,text=black]{(2,0)};
+        \filldraw[blue] (3,12) circle (2pt) node[anchor=west,text=black]{(3,12)};
+      \end{axis}
+    \end{tikzpicture}
+	}
+	\frame {
+		\frametitle{Linear transformations and digitial image proccesing}
+		\framesubtitle{\textbf{3.1} - Discuss in what way the columns of $A$ become "almost linearly dependent" for small $epsilon \approx 0$}
+		\begin{tikzpicture}[scale=0.4]
+      \begin{axis}[
+            axis y line=center,
+            axis x line=middle, 
+            axis on top=true,
+            xmin=-0.2,
+            xmax=1.2,
+            ymin=-0.2,
+            ymax=1.7,
+            height=6.0cm,
+            width=9.0cm,
+            grid,
+            xtick={0,0.2,...,1},
+            ytick={0,0.2,...,1.5},
+        ]
+        \addplot [domain=0:1, samples=50, mark=none, ultra thick, blue] {\Functionone(x)};
+        \addplot [domain=0:1, samples=50, mark=none, ultra thick, blue] {\Functiontwo(x)};
+        \filldraw[blue] (1,1) circle (2pt) node[anchor=west]{(1,1)};
+        \filldraw[blue] (1,1.5) circle (2pt) node[anchor=west]{(1,1.5)};
+        %\draw[dashed, domain=0:1, smooth, variable=\x, blue] plot ({\x}, {\x*1.1});
+        %\draw[dashed, domain=0:1, smooth, variable=\x, blue] plot ({\x}, {\x*1.2});
+        %\draw[dashed, domain=0:1, smooth, variable=\x, blue] plot ({\x}, {\x*1.3});
+        %\draw[dashed, domain=0:1, smooth, variable=\x, blue] plot ({\x}, {\x*1.4});
+      \end{axis}
+    \end{tikzpicture}
+		\begin{tikzpicture}[scale=0.4]
+      \begin{axis}[
+            axis y line=center,
+            axis x line=middle, 
+            axis on top=true,
+            xmin=-0.2,
+            xmax=1.2,
+            ymin=-0.2,
+            ymax=1.7,
+            height=6.0cm,
+            width=9.0cm,
+            grid,
+            xtick={0,0.2,...,1},
+            ytick={0,0.2,...,1.5},
+        ]
+        \addplot [domain=0:1, samples=50, mark=none, ultra thick, blue] {\Functionone(x)};
+        \addplot [domain=0:1, samples=50, mark=none, ultra thick, blue] {\Functionthree(x)};
+        \filldraw[blue] (1,1) circle (2pt) node[anchor=west]{(1,1)};
+        \filldraw[blue] (1,1.01) circle (2pt) node[anchor=east]{(1,1.01)};
+      \end{axis}
+    \end{tikzpicture}
+		\begin{tikzpicture}[scale=0.3]
+      \begin{axis}[
+            axis y line=center,
+            axis x line=middle, 
+            axis on top=true,
+            xmin=-0.2,
+            xmax=1.2,
+            ymin=-0.2,
+            ymax=1.7,
+            height=8.0cm,
+            width=12.0cm,
+            grid,
+            xtick={0,0.2,...,1},
+            ytick={0,0.2,...,1.5},
+        ]
+        \addplot [domain=0:1, samples=50, mark=none, ultra thick, blue] {\Functionone(x)};
+        \addplot [domain=0:1, samples=50, mark=none, ultra thick, blue] {\Functionone(x)};
+        \filldraw[blue] (1,1) circle (2pt) node[anchor=west]{(1,1)};
+        \filldraw[blue] (1,1) circle (2pt) node[anchor=east]{(1,1)};
+      \end{axis}
+    \end{tikzpicture}
+	}
+	\frame {
+		\frametitle{Linear transformations and digitial image proccesing}
+		\framesubtitle{\textbf{3.3} - Small changes in $\delta$ leads to very large changes in the solution. Comparing pairs of solutions corresponding to \(\delta = 0\) and \(\delta = 0.01\) for various values of \(\epsilon\neq 0\): \(\epsilon = 0.1\), \(\epsilon = 0.01\), \(\epsilon = 0.0001\). }
+
+		\[\delta=0, \epsilon = 0.1:\mathbf{x}=\begin{pmatrix}2-\frac{0}{0.1} \\\frac{0}{0.1}\end{pmatrix}=\begin{pmatrix}2 \\0\end{pmatrix} \]
+		\[\delta=0, \epsilon = 0.01:\mathbf{x}=\begin{pmatrix}2-\frac{0}{0.01} \\\frac{0}{0.01}\end{pmatrix}=\begin{pmatrix}2 \\0\end{pmatrix} \]
+		\[\delta=0, \epsilon = 0.0001:\mathbf{x}=\begin{pmatrix}2-\frac{0}{0.0001} \\\frac{0}{0.0001}\end{pmatrix}=\begin{pmatrix}2 \\0\end{pmatrix} \]
+		\[\delta=1, \epsilon = 0.1:\mathbf{x}=\begin{pmatrix}2-\frac{1}{0.1} \\\frac{1}{0.1}\end{pmatrix}=\begin{pmatrix}-8 \\10\end{pmatrix} \]
+		\[\delta=1, \epsilon = 0.01:\mathbf{x}=\begin{pmatrix}2-\frac{0}{0.01} \\\frac{1}{0.01}\end{pmatrix}=\begin{pmatrix}-98 \\100\end{pmatrix} \]
+		\[\delta=1, \epsilon = 0.0001:\mathbf{x}=\begin{pmatrix}2-\frac{1}{0.0001} \\\frac{1}{0.0001}\end{pmatrix}=\begin{pmatrix}-9998 \\10000\end{pmatrix} \]
+	}
+	\frame{
+		\frametitle{Iterative algorithms for solving linear algebraic systems}
+		\framesubtitle{\textbf{4.1} - The matrices $L$ and $U$}
+		\[
+			L=\begin{bmatrix}
+				-12 & 0 & 0 & 0 \\ 
+				6 & 14 & 0 & 0 \\
+				-5 & -8 & 24 & 0 \\
+				1 & -4 & 10 & 16
+			\end{bmatrix},
+			U=\begin{bmatrix}
+				0 & 4 & 0 & -6 \\ 
+				0 & 0 & 3 & -3 \\
+				0 & 0 & 0 & 8 \\
+				0 & 0 & 0 & 0
+			\end{bmatrix}
+		\]
+	}
+	\frame{
+		\frametitle{Iterative algorithms for solving linear algebraic systems}
+		\framesubtitle{\textbf{4.2} - Compuing the next iterate $x^{(1)}$ in the Gauss-Seidel algorithm}
+		\fontsize{6pt}{7.2}\selectfont
+		\begin{align*}
+			x^{(0)}=[1,2,3,4]^T \\
+			x^{(k+1)}=Lx^{(k+1)}=b-Ux^{(k)} \\
+			x^{(1)}=Lx^{(1)}=b-Ux^{(0)} \\
+			x^{(1)}=\begin{bmatrix}
+				-12 & 0 & 0 & 0 \\ 
+				6 & 14 & 0 & 0 \\
+				-5 & -8 & 24 & 0 \\
+				1 & -4 & 10 & 16
+			\end{bmatrix}x^{(1)}=
+			\begin{bmatrix}
+				-8 \\ 47 \\ -93 \\ -13
+			\end{bmatrix}
+			-
+			\begin{bmatrix}
+				0 & 4 & 0 & -6 \\ 
+				0 & 0 & 3 & -3 \\
+				0 & 0 & 0 & 8 \\
+				0 & 0 & 0 & 0
+			\end{bmatrix}
+			\begin{bmatrix}
+				1 \\ 2 \\ 3 \\ 4
+			\end{bmatrix} \\
+			x_1^{(1)}:-12x_1=-8-(4(2)-6(4)) \Longleftrightarrow -12x_1=8 \Longleftrightarrow x_1=\frac{8}{-12} \Longleftrightarrow x_1=-0.\overline{66} \\
+			x_2^{(2)}:6x_1+14x_2=50 \Longleftrightarrow x_2=\frac{-6(-0.\overline{66})+50}{14} \Longleftrightarrow x_2=3.85 \\ 
+			x_3^{(3)}:-5x_1-8x_2+24x_3=-125 \Longleftrightarrow x_3=\frac{5(-0.\overline{66})+8(3.85)-125}{24}=x_3=-4.06 \\
+			x_4^{(4)}:1x_1-4x_2+10x_3+16x_4=-13 \Longleftrightarrow x_4=\frac{-1(0.\overline{66})+4(3.85)-10(-4.06)-13}{16}=x_4=2.64 \\
+			\text{\emph{Solution is therefore:}} \\
+			x_1^{(1)}=-0.\overline{66},\;x_2^{(1)}=3.85,\;x_3^{(1)}=-4.06,\;x_4^{(1)}=2.64 \Longleftrightarrow x^{(1)}=\begin{pmatrix}-0,\overline{66} \\3.85 \\-4.06 \\2.64\end{pmatrix}
+		\end{align*}
+	}
+	\frame{
+		\frametitle{Iterative algorithms for solving linear algebraic systems}
+		\framesubtitle{\textbf{4.3} - Showing the next iterate $x^{(1)}$ in the Gauss-Seidel algorithm equals $x^{(0)}=[1,4,-3,2]^T$}
+		\fontsize{6pt}{4}\selectfont
+		
+		\begin{align*}
+			Lx^{(1)}=b-Ux^{(0)} \text{ We want to show that the next iterate } x^{(1)} \text{ equals } x^{(0)} \\
+			Ux^{(0)}=\begin{bmatrix}0 & 4(4) & 0 & -6(2) \\0 & 0 & 3(-3) & -3(2) \\0 & 0 & 0 & 8(2) \\0 & 0 & 0 & 0\end{bmatrix}=\begin{bmatrix}4 \\-15 \\16 \\ 0\end{bmatrix} \\
+			Lx^{(1)}=b-Ux^{(0)} \Longleftrightarrow \begin{bmatrix}-8 \\47 \\-93 \\-13\end{bmatrix}-\begin{bmatrix}4 \\-15 \\16 \\ 0\end{bmatrix}=\begin{bmatrix}-12 \\62 \\-109 \\-13\end{bmatrix} \\
+			L=\begin{bmatrix}-12 & 0 & 0 & 0 \\6 & 14 & 0 & 0 \\-5 & -8 & 24 & 0 \\1 & -4 & 10 & 16\end{bmatrix}x^{(1)}=\begin{bmatrix}-12 \\62 \\-109 \\-13\end{bmatrix}\Longleftrightarrow\begin{bmatrix}-12 & 0 & 0 & 0 & -12\\6 & 14 & 0 & 0 & 62 \\-5 & -8 & 24 & 0 & -109 \\1 & -4 & 10 & 16 & -13\end{bmatrix} \\
+			x_1^{(1)}=\frac{-12}{-12}=1 \\
+			x_2^{(1)}=62-6(x_1)=62-6(1)=\frac{56}{14}=4 \\
+			x_3^{(1)}=\frac{5(x_1)+8(x_2)-109}{24}=\frac{5(1)+8(4)-109}{24}=\frac{-72}{24}=-3 \\
+			x_4^{(1)}=\frac{-1(x_1)+4(x_2)-10(x_3)-13}{16}=\frac{-1+4(4)-10(-3)-13}{16}=\frac{32}{16}=2 \\
+			x^{(0)}=[1,4,-3,2]^T \\
+			x^{(1)}=[1,4,-3,2]^T \\
+			x^{(0)}=x^{(1)} \text{ Hence it is a solution}
+		\end{align*}
+	}
+	\frame{
+		\frametitle{Iterative algorithms for solving linear algebraic systems}
+		\framesubtitle{\textbf{4.4} Showing that $x^{(k)}$ solves the system $Ax=b$ by assuming that at some point $x^{(k+1)}=x^{(k)}$}
+
+		\begin{align*}
+			Lx^{(k+1)}=b-Ux^{(k)} && \text{ Line 3 in algorithm}\\
+			Lx^{(k)}=b-Ux^{(k)} && \text{ Assuming at some iteration $k$ that $x^{(k+1)}=x^{(k)}$}\\
+			Lx^{(k)}+Ux^{(k)}=b \\
+			(L+U)x^{(k)}=b && \text{ Distributive law} \\
+			Ax^{(k)}=b && \text{ Given $A=L+U$}
+		\end{align*}
+	}
+\end{document}

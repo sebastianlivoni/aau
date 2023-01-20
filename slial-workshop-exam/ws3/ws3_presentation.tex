@@ -1,0 +1,289 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+
+\title{Sandsynlighedsteori og Lineær algebra}
+\subtitle{Workshop 3 - Orthogonal matrices and least-squares problems}
+\author{Sebastian Livoni Larsen}
+
+\usepackage{tikz}
+\usepackage{pgfplots,pgfplotstable}
+\pgfplotsset{compat=1.15}
+
+\def\FunctionF(#1){(#1)^2}
+\def\FunctionG(#1){6*(#1)-2}
+
+\begin{document}
+	\frame {
+		\titlepage
+	}
+  \frame{
+    \frametitle{Part 1}
+    \framesubtitle{\textbf{Exercise 1} - Finding A and its size.}
+    \fontsize{10pt}{7.2}\selectfont
+
+    \begin{align*}
+      Ax=b \Longleftrightarrow A\begin{bmatrix}x_1 \\ x_2 \\ x_3 \\x_4 \end{bmatrix}=\begin{bmatrix}
+      x_1+x_2 \\ x_3+x_4 \\ x_1 + x_3 \\ x_2 + x_4 \\ x_2 \\ x_1 + x_4 \\ x_3 \\ x_1 \\ x_2 + x_3 \\ x_4
+      \end{bmatrix}
+        \Longleftrightarrow 
+      \begin{bmatrix}
+      1 & 1 & 0 & 0 \\
+      0 & 0 & 1 & 1 \\
+      1 & 0 & 1 & 0 \\
+      0 & 1 & 0 & 1 \\
+      0 & 1 & 0 & 0 \\
+      1 & 0 & 0 & 1 \\
+      0 & 0 & 1 & 0 \\
+      1 & 0 & 0 & 0 \\
+      0 & 1 & 1 & 0 \\
+      0 & 0 & 0 & 1 \\
+      \end{bmatrix}
+      \begin{bmatrix}x_1 \\ x_2 \\ x_3 \\x_4 \end{bmatrix}=\begin{bmatrix}
+      x_1+x_2 \\ x_3+x_4 \\ x_1 + x_3 \\ x_2 + x_4 \\ x_2 \\ x_1 + x_4 \\ x_3 \\ x_1 \\ x_2 + x_3 \\ x_4
+      \end{bmatrix}
+    \end{align*}
+    \[A=n \times m, x=m \times p \text{ then } b=n \times p\]
+
+    \begin{itemize}
+      \item The size of $A$ must be $\mathbf{10 \times 4}$ matrix because if $A=10 \times 4$ and $x=4 \times 1$ then $b=10 \times 1$.
+    \end{itemize}
+  }
+
+  \frame{
+    \frametitle{Part 1}
+    \framesubtitle{\textbf{Exercise 3} - What are the dimensions of $x$, $b$ and $A$.}
+
+    \begin{align*}
+      A=6N-2\times N^2 \\
+      x=N^2 \times 1 \\
+      b=6N-2 \times 1
+    \end{align*}
+  }
+
+  \frame{
+    \frametitle{Part 1}
+    \framesubtitle{\textbf{Exercise 6} - Computing a QR-factorization of the matrix $A$ and use things infromation to compute the orthogonal projection of the vecotr $b$.}
+
+    \begin{itemize}
+      \item If a set contains more vectors than there are entries in each vector, then the set is linearly dependent.
+    \end{itemize}
+
+    \begin{tikzpicture}
+      \begin{axis}[
+            axis y line=center,
+            axis x line=middle, 
+            axis on top=true,
+            xmin=-1,
+            xmax=8,
+            ymin=-8,
+            ymax=50,
+            height=8.0cm,
+            width=12.0cm,
+            grid,
+            xtick={-2,...,8},
+            ytick={-5,0,...,50},
+        ]
+        \addplot [domain=2:50, samples=50, mark=none, ultra thick, blue] {\FunctionF(x)};
+        \addplot [domain=2:50, samples=50, mark=none, ultra thick, red] {\FunctionG(x)};
+        \addplot [domain=-20:2, dotted, samples=50, mark=none, ultra thick, blue] {\FunctionF(x)};
+        \addplot [domain=-20:2, dotted, samples=50, mark=none, ultra thick, red] {\FunctionG(x)};
+        \node [right, blue] at (axis cs: 2,45) {$N^2$};
+        \node [right, red] at (axis cs: 2,40) {$6N-2$};
+        \filldraw[blue] (5.64,31.87) circle (2pt) node[anchor=east,text=black]{(5.64,31.87)};
+        %\filldraw[blue] (2,0) circle (2pt) node[anchor=south,text=black]{(2.0)};
+        %\filldraw[blue] (3,12) circle (2pt) node[anchor=west,text=black]{(3,12)};
+      \end{axis}
+    \end{tikzpicture}
+  }
+
+  \frame{
+    \frametitle{Part 1}
+    \framesubtitle{\textbf{Exercise 6} - Computing a QR-factorization of the matrix $A$ and use things infromation to compute the orthogonal projection of the vecotr $b$.}
+    \fontsize{8pt}{7.2}\selectfont
+
+    \begin{align*}
+      Q=\begin{bmatrix}
+          -0.5000 & -0.3873 & 0.2108 & 0.1782 \\
+        0 & 0 & -0.5270 & -0.4454 \\
+        -0.5000 & 0.1291 & -0.4216 & 0.1782 \\
+        0 & -0.5164 & 0.1054 & -0.4454 \\
+        0 & -0.5164 & 0.1054 & 0.0891 \\
+        -0.5000 & 0.1291 & 0.1054 & -0.4454 \\
+        0 & 0 & -0.5270 & 0.0891 \\
+        -0.5000 & 0.1291 & 0.1054 & 0.0891 \\
+        0 & -0.5164 & -0.4216 & 0.1782 \\
+        0 & 0 & 0 & -0.5345
+        \end{bmatrix} \\
+        R=\begin{bmatrix}
+          -2 & -0.5 & -0.5 & -0.5 \\
+        0 & -1.9365 & -0.3873 & -0.3873 \\
+        0 & 0 & -1.8974 & -0.3162 \\
+        0 & 0 & 0 & -1.8708
+        \end{bmatrix} \\
+      \end{align*}
+      \begin{align*}
+        proj_Q\mathbf{b}=Q(Q^T\mathbf{b})=\begin{bmatrix}
+          3.5714 \\
+          5.5714 \\
+          4.2381 \\
+          4.9048 \\
+          1.9524 \\
+          4.5714 \\
+          2.6190 \\
+          1.6190 \\
+          4.5714 \\
+          2.9524
+        \end{bmatrix}
+      \end{align*}
+  }
+
+  \frame{
+    \frametitle{Part 1}
+    \framesubtitle{\textbf{Exercise 7} - Finding the solution to the least-squares problem by solving the normal equations and utilizing the QR-factorization.}
+
+    Method 1 (normal equations):
+    \begin{align*}
+      \mathbf{\hat{x}} \Longleftrightarrow A^TA\mathbf{x}=A^T\mathbf{b} \Longleftrightarrow
+      \begin{bmatrix}
+        1.6190 \\ 1.9524 \\ 2.6190 \\ 2.9524
+      \end{bmatrix}
+    \end{align*}
+    Method 2 (Utilizing QR-factorization):
+    \begin{align*}
+      \mathbf{\hat{x}} \Longleftrightarrow R\mathbf{x}=Q^T\mathbf{b}\begin{bmatrix}
+        1.6190 \\ 1.9524 \\ 2.6190 \\ 2.9524
+      \end{bmatrix}
+    \end{align*}
+  }
+
+  \frame{
+    \frametitle{Part 2}
+    \framesubtitle{\textbf{Exercise 2} - Verifying $G$ is an orthogonal matrix that maps $[a,b]$ to $[d,0]$.}
+    \fontsize{7pt}{7.2}\selectfont
+
+    \begin{align*}
+      G^TG=
+      \begin{bmatrix}
+        c & -s \\ s & c
+      \end{bmatrix}
+      \begin{bmatrix}
+        c & s \\ -s & c
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+        cc+ss & cs-sc \\ sc-cs & ss+cc
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+        cc+ss & 0 \\ 0 & ss+cc
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+        1 & 0 \\ 0 & 1
+      \end{bmatrix}
+    \end{align*}
+    \begin{multline*}
+      \begin{bmatrix}
+        c & s \\ -s & c
+      \end{bmatrix}
+      \begin{bmatrix}
+        a \\ b
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+        a/\sqrt{a^2+b^2} & b/\sqrt{a^2+b^2} \\ -(b/\sqrt{a^2+b^2}) & a/\sqrt{a^2+b^2}
+      \end{bmatrix}
+      \begin{bmatrix}
+        a \\ b
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+        a/\sqrt{a^2+b^2} * a + b/\sqrt{a^2+b^2} * b \\ -(b/\sqrt{a^2+b^2}) * a + a/\sqrt{a^2+b^2} * b
+      \end{bmatrix} \\
+      =
+      \begin{bmatrix}
+        a^2/\sqrt{a^2+b^2} + b^2/\sqrt{a^2+b^2} \\ 0
+      \end{bmatrix}
+    \end{multline*}
+
+    \begin{itemize}
+      \item We can see that in fact, $G$ does map $[a,b]$ to a vector $[d,0]$ in $\mathbb{R}^2$.
+    \end{itemize}
+  }
+
+  \frame{
+    \frametitle{Part 2}
+    \framesubtitle{\textbf{Exercise 3} - Verifying that $G(i,j,a,b)$ is an orthogonal matrix and that is maps to [d,0] in $\mathbb{R}^m$.}
+    \fontsize{5pt}{7.2}\selectfont
+
+    \begin{align*}
+      GG^T=
+      \begin{bmatrix}
+        I\\
+        & c & & s \\
+        &   &I&   \\
+        & -s && c \\
+        &&&&I
+      \end{bmatrix}
+      \begin{bmatrix}
+        I\\
+        & c & & -s \\
+        &   &I&   \\
+        & s && c \\
+        &&&&I
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+        I\\
+        & cc+ss & & sc-sc \\
+        &   &I&   \\
+        & sc-cs && ss+cc \\
+        &&&&I
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+        I\\
+        & 1 \\
+        &   &I&   \\
+        & && 1 \\
+        &&&&I
+      \end{bmatrix}
+    \end{align*}
+    \begin{align*}
+      G(i,j,a,b)x=
+      \begin{bmatrix}
+        I\\
+        & \ddots \\
+        && c_{ii} & & s_{ij} \\
+        &&    &I&   \\
+        && -s_{ji} && c_{jj} \\
+        &&&&& \ddots \\
+        &&&&&& I
+      \end{bmatrix}
+      \begin{bmatrix}
+        x_1 \\ \vdots \\ x_{i-1} \\ a \\ x_{i+1} \\ \vdots \\ x_{j-1} \\ b \\ x_{j+1} \\ \vdots \\ x_m
+      \end{bmatrix}
+    \end{align*}
+  }
+
+  \frame{
+    \frametitle{Part 2}
+    \framesubtitle{\textbf{Exercise 4} - Explain why a product of square orthogonal matrices is itself an orthogonal matrix. Explain why $Q_1Q_2 \cdots Q_k$ is orthogonal.}
+
+
+    Let $A$ and $B$ be orthogonal matrices.
+    \begin{align*}
+      AA^T=A^TA=I
+    \end{align*}
+    and
+    \begin{align*}
+      BB^T=B^TB=I
+    \end{align*}
+
+    \begin{align*}
+      (AB)^T(AB)=(B^TA^T)AB=\mathbf{B^T(A^TA)B}=B^T(I)B=B^TB=I
+    \end{align*}
+  }
+  
+\end{document}
