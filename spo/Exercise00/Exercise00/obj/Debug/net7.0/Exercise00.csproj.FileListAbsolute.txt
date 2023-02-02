@@ -1,0 +1,15 @@
+/Users/seb/Developer/aau/spo/Exercise00/Exercise00/bin/Debug/net7.0/Exercise00
+/Users/seb/Developer/aau/spo/Exercise00/Exercise00/bin/Debug/net7.0/Exercise00.deps.json
+/Users/seb/Developer/aau/spo/Exercise00/Exercise00/bin/Debug/net7.0/Exercise00.runtimeconfig.json
+/Users/seb/Developer/aau/spo/Exercise00/Exercise00/bin/Debug/net7.0/Exercise00.dll
+/Users/seb/Developer/aau/spo/Exercise00/Exercise00/bin/Debug/net7.0/Exercise00.pdb
+/Users/seb/Developer/aau/spo/Exercise00/Exercise00/obj/Debug/net7.0/Exercise00.csproj.AssemblyReference.cache
+/Users/seb/Developer/aau/spo/Exercise00/Exercise00/obj/Debug/net7.0/Exercise00.GeneratedMSBuildEditorConfig.editorconfig
+/Users/seb/Developer/aau/spo/Exercise00/Exercise00/obj/Debug/net7.0/Exercise00.AssemblyInfoInputs.cache
+/Users/seb/Developer/aau/spo/Exercise00/Exercise00/obj/Debug/net7.0/Exercise00.AssemblyInfo.cs
+/Users/seb/Developer/aau/spo/Exercise00/Exercise00/obj/Debug/net7.0/Exercise00.csproj.CoreCompileInputs.cache
+/Users/seb/Developer/aau/spo/Exercise00/Exercise00/obj/Debug/net7.0/Exercise00.dll
+/Users/seb/Developer/aau/spo/Exercise00/Exercise00/obj/Debug/net7.0/refint/Exercise00.dll
+/Users/seb/Developer/aau/spo/Exercise00/Exercise00/obj/Debug/net7.0/Exercise00.pdb
+/Users/seb/Developer/aau/spo/Exercise00/Exercise00/obj/Debug/net7.0/Exercise00.genruntimeconfig.cache
+/Users/seb/Developer/aau/spo/Exercise00/Exercise00/obj/Debug/net7.0/ref/Exercise00.dll
