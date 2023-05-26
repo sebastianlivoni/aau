@@ -110,18 +110,12 @@ int create_mask(int from, int to)
     return mask;
 }
 
-void print_binary(int value, int BIT_WORD_SIZE)
+void print_binary(int value, int size)
 {
-    int i;
-    int arr[BIT_WORD_SIZE];
+    if (size == 0)
+        return;
 
-    for (i = 0; i < BIT_WORD_SIZE; i++)
-    {
-        arr[i] = value % 2;
-        value = abs(value / 2);
-    }
-    for (i = i - 1; i >= 0; i--)
-    {
-        printf("%d", arr[i]);
-    }
+    print_binary(value / 2, --size);
+
+    printf("%d", value % 2);
 }
