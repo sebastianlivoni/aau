@@ -7,17 +7,12 @@ void print_binary(int value, int BIT_WORD_SIZE);
 
 int main()
 {
-    /* Default values */
-    int virtual_address = 0x150A;  // Virtual adrese
-    int page_size = 32;            // block size
-    int virtual_adresse_bits = 14; // Virtual addresse i bits
-    int fysisk_addresse_bits = 12; // Fysisk addresse i bits
-    int tlb_sets = 4;              // Antal sets
+    unsigned int virtual_address = 0x150A, page_size = 32, virtual_adresse_bits = 14, fysisk_addresse_bits = 12, tlb_sets = 4;
 
     printf("What is the virtual address? Type it without 0x => ");
     scanf("%x", &virtual_address);
 
-    printf("How many bytes is the page size? => ");
+    printf("How many bytes is the page size (block size)? => ");
     scanf("%d", &page_size);
 
     printf("How many bits is the virtual address? => ");
@@ -29,19 +24,19 @@ int main()
     printf("How many TBL sets? => ");
     scanf("%d", &tlb_sets);
 
-    const int vpo_bits = log2(page_size);
-    const int tlb_index_bits = log2(tlb_sets);
-    const int tlb_tag_bits = virtual_adresse_bits - (vpo_bits + tlb_index_bits);
+    const int vpo_length = log2(page_size);
+    const int index_length = log2(tlb_sets);
+    const int tag_length = virtual_adresse_bits - (vpo_length + index_length);
 
-    int vpo_mask = create_mask(0, vpo_bits);
-    int vpn_mask = create_mask(vpo_bits, vpo_bits + tlb_index_bits + tlb_tag_bits);
-    int tlb_index_mask = create_mask(vpo_bits, vpo_bits + tlb_index_bits);
-    int tlb_tag_mask = create_mask(vpo_bits + tlb_index_bits, vpo_bits + tlb_index_bits + tlb_tag_bits);
+    int vpo_mask = create_mask(0, vpo_length);
+    int vpn_mask = create_mask(vpo_length, vpo_length + index_length + tag_length);
+    int tlb_index_mask = create_mask(vpo_length, vpo_length + index_length);
+    int tlb_tag_mask = create_mask(vpo_length + index_length, vpo_length + index_length + tag_length);
 
-    int VPN = (virtual_address & vpn_mask) >> vpo_bits;
+    int VPN = (virtual_address & vpn_mask) >> vpo_length;
     int VPO_OFFSET = virtual_address & vpo_mask;
-    int TLB_INDEX = (virtual_address & tlb_index_mask) >> vpo_bits;
-    int TLB_TAG = (virtual_address & tlb_tag_mask) >> (tlb_index_bits + vpo_bits);
+    int TLB_INDEX = (virtual_address & tlb_index_mask) >> vpo_length;
+    int TLB_TAG = (virtual_address & tlb_tag_mask) >> (index_length + vpo_length);
 
     printf("Virtual address in bits: ");
     print_binary(virtual_address, virtual_adresse_bits);
@@ -81,7 +76,7 @@ int main()
 
         printf("Bits in physical address: ");
 
-        ppn <<= vpo_bits;
+        ppn <<= vpo_length;
         int result = ppn | VPO_OFFSET;
 
         print_binary(result, fysisk_addresse_bits);
@@ -102,11 +97,8 @@ int main()
 
 int create_mask(int from, int to)
 {
-    int mask = 0;
-    for (int i = from; i < to; i++)
-    {
-        mask |= (1 << i);
-    }
+    unsigned int mask = (1 << (to - from)) - 1;
+    mask <<= from;
     return mask;
 }
 
