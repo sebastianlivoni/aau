@@ -33,6 +33,21 @@ int main()
     int tlb_index_mask = create_mask(vpo_length, vpo_length + index_length);
     int tlb_tag_mask = create_mask(vpo_length + index_length, vpo_length + index_length + tag_length);
 
+    printf("Bit addresses: ");
+    for (int i = 0; i < tag_length; i++)
+    {
+        printf("T");
+    }
+    for (int i = 0; i < index_length; i++)
+    {
+        printf("I");
+    }
+    for (int i = 0; i < vpo_length; i++)
+    {
+        printf("B");
+    }
+    printf("\n");
+
     int VPN = (virtual_address & vpn_mask) >> vpo_length;
     int VPO_OFFSET = virtual_address & vpo_mask;
     int TLB_INDEX = (virtual_address & tlb_index_mask) >> vpo_length;
