@@ -65,7 +65,7 @@ int main()
     int tlb_miss;
     int ppn;
     int tlb_hit;
-    int no_pagefault = 0;
+    int no_pagefault = 1;
 
     printf("TBL TABLE: Index (set) %x, tag %x. Match and valid? ", TLB_INDEX, TLB_TAG);
     scanf("%d", &tlb_hit);
