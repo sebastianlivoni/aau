@@ -63,7 +63,14 @@ int main()
 
     if (tlb_hit || no_pagefault)
     {
-        printf("What is PPN at VPN %x? ", VPN);
+        if (tlb_hit)
+        {
+            printf("What is PPN? ");
+        }
+        else if (no_pagefault)
+        {
+            printf("What is PPN at VPN %x? ", VPN);
+        }
         scanf("%x", &ppn);
     }
 
