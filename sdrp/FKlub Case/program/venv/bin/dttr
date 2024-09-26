@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/seb/Downloads/FKlub Case/program/venv/bin/python3.12" "$0" "$@"
+'''exec' "/Users/seb/Developer/AAU/sdrp/FKlub Case/program/venv/bin/python3" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re
