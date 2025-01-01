@@ -1,0 +1,1 @@
+within xs (a, b) = filter (\x -> a <= x && x <= b) xs

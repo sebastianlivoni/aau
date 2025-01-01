@@ -1,0 +1,1 @@
+positions xs = map (\x -> fromEnum x - 96) xs

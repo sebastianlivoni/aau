@@ -1,0 +1,1 @@
+sumsq n = foldr (\x -> \y -> x ^ 2 + y) 0 [1..n]

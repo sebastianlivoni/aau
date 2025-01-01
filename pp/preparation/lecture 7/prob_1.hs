@@ -1,0 +1,1 @@
+data Aexp = Var String | Num Integer | Add Aexp Aexp | Mult Aexp Aexp

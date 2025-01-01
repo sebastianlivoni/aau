@@ -1,0 +1,1 @@
+expr f s z = z >>= \y -> s y >> return (f y)

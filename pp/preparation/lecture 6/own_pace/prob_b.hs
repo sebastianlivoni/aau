@@ -1,0 +1,1 @@
+filter' p xs = foldr (\y ys -> if p y then y : ys else ys) [] xs

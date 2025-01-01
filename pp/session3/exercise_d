@@ -1,0 +1,11 @@
+Here is a Haskell expression.
+
+[(+),(*),(+),(-)]
+
+What does it contain and what is the type of the expression? Find the answer without asking the
+Haskell interpreter. Explain why your answer is correct. Then (and only then!) ask the Haskell
+interpreter what the type is.
+
+[(+),(*),(+),(-)] :: Num a => [a -> a -> a]
+
+[(+),(*),(+),(-),(++)]

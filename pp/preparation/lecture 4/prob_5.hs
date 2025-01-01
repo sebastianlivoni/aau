@@ -1,0 +1,1 @@
+isperfect x = sum (filter (\k -> x `mod` k == 0) [1..x-1]) == x
